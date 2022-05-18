@@ -33,6 +33,8 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
     networks:
       - wordpress
 
