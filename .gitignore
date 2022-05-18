@@ -1,3 +1,4 @@
-mysql
+mysql/*
+!mysql/.keep
 .DS_Store
 .idea

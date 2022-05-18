@@ -1,10 +1,14 @@
 # docker-compose-wordpress
-A simplified yet refined Docker Compose workflow that sets up a LEMP network of containers for local WordPress development. If you'd like more interactive info, there's a [video tutorial](https://www.youtube.com/watch?v=kIqWxjDj4IU) that walk you through setup and usage of this environment.
 
+- TODO: Update this Readme and build a script for a fast test environment setup
+
+A simplified yet refined Docker Compose workflow that sets up a LEMP network of containers for local WordPress development. If you'd like more interactive info, there's a [video tutorial](https://www.youtube.com/watch?v=kIqWxjDj4IU) that walk you through setup and usage of this environment.
 
 ## Usage
 
 To get started, make sure you have [Docker installed](https://docs.docker.com/docker-for-mac/install/) on your system, and then clone this repository.
+
+Add your local testing domain to your hostfile and update `replace-me.test` in the nginx config.
 
 Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running `docker-compose up -d --build site`.
 
@@ -19,6 +23,12 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 An additional container is included that lets you use the wp-cli app without having to install it on your local machine. Use the following command examples from your project root, modifying them to fit your particular use case.
 
 - `docker-compose run --rm wp user list`
+
+## Add local certificates here to enable https
+
+I personally like using [mkcert]() for this.
+
+Follow the installation instructions, then `cd` to this directory and use `mkcert` with the local domain name of your choosing.
 
 ## Persistent MySQL Storage
 
