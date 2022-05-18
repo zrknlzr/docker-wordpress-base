@@ -3,5 +3,6 @@ mysql/*
 !mysql/.keep
 nginx/certs/*
 !nginx/certs/.keep
+.access
 .DS_Store
 .idea
