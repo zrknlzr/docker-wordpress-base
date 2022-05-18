@@ -1,6 +1,8 @@
 # docker-compose-wordpress
 
-- TODO: Update this Readme and build a script for a fast test environment setup
+- TODO: Update this Readme for a streamlined workflow
+- TODO: Add script to get content/database from staging/live instance
+- TODO: Add script to sync theme to staging/live instance
 
 A simplified yet refined Docker Compose workflow that sets up a LEMP network of containers for local WordPress development. If you'd like more interactive info, there's a [video tutorial](https://www.youtube.com/watch?v=kIqWxjDj4IU) that walk you through setup and usage of this environment.
 
@@ -14,7 +16,7 @@ Next, navigate in your terminal to the directory you cloned this, and spin up th
 
 After that completes, follow the steps from the [src/README.md](src/README.md) file to get your WordPress installation added in (or create a new blank one).
 
-Bringing up the Docker Compose network with `site` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
+Bringing up the Docker Compose network with `site` instead of just usi ng `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
 
 - **nginx** - `:80`
 - **mysql** - `:3306`

@@ -1,4 +1,7 @@
+wordpress/
 mysql/*
 !mysql/.keep
+nginx/certs/*
+!nginx/certs/.keep
 .DS_Store
 .idea
