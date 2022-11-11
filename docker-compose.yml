@@ -1,62 +1,62 @@
-version: '3'
+version: "3"
 
 networks:
-  wordpress:
+    wordpress:
 
 services:
-  site:
-    build:
-      context: .
-      dockerfile: nginx.dockerfile
-    container_name: nginx
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./wordpress:/var/www/html:delegated
-    depends_on:
-      - php
+    nginx:
+        build:
+            context: .
+            dockerfile: nginx.dockerfile
+        container_name: nginx
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./wordpress:/var/www/html:delegated
+        depends_on:
+            - php
             - mariadb
-    networks:
-      - wordpress
+        networks:
+            - wordpress
 
     mariadb:
         build:
             context: .
             dockerfile: mariadb.dockerfile
         container_name: mariadb
-    restart: always
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_DATABASE: wp
-      MYSQL_USER: wp
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_DATABASE: wp
+            MYSQL_USER: wp
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: secret
             MYSQL_CHARSET: utf8mb4
             MYSQL_COLLATION: utf8mb4_unicode_ci
-    volumes:
-      - ./mysql:/var/lib/mysql
-    networks:
-      - wordpress
+        volumes:
+            - ./mysql:/var/lib/mysql
+        networks:
+            - wordpress
 
-  php:
-    build:
-      context: .
-      dockerfile: php.dockerfile
-    container_name: php
-    volumes:
-      - ./wordpress:/var/www/html:delegated
-    networks:
-      - wordpress
+    php:
+        build:
+            context: .
+            dockerfile: php.dockerfile
+        container_name: php
+        volumes:
+            - ./wordpress:/var/www/html:delegated
+        networks:
+            - wordpress
 
-  wp:
-    build:
-      context: .
-      dockerfile: php.dockerfile
-    container_name: wp
-    entrypoint: ['wp', '--allow-root']
-    volumes:
-      - ./wordpress:/var/www/html:delegated
-    networks:
-      - wordpress
+    wp:
+        build:
+            context: .
+            dockerfile: php.dockerfile
+        container_name: wp
+        entrypoint: ["wp", "--allow-root"]
+        volumes:
+            - ./wordpress:/var/www/html:delegated
+        networks:
+            - wordpress
