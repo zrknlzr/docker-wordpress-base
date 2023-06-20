@@ -23,8 +23,3 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 An additional container is included that lets you use the wp-cli app without having to install it on your local machine. Use the following command examples from your project root, modifying them to fit your particular use case.
 
 -   `docker-compose run --rm wp user list`
-
-## ToDo
-
--   [ ] Add script to get content/database from staging/live instance
--   [ ] Add script to sync theme to staging/live instance
